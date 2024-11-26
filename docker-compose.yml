@@ -1,0 +1,31 @@
+services:
+  local_db:
+    restart: yes
+    image: mariadb:11.4.4-noble
+    container_name: dev_db
+    networks:
+      dockerNet:
+        ipv4_address: "172.18.0.101"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    env_file:
+      - ./db_env
+    environment:
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_pwd
+    secrets:
+      - db_pwd
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    stdin_open: true
+    tty: true
+
+# 機密資訊設定
+secrets:
+  db_pwd:
+    file: ./db_pwd
+
+# 網路設定
+networks:
+  dockerNet: # 網路名稱
+    external: true # 使用外部網路
