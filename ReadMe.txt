@@ -12,7 +12,7 @@ Kevin Cheng
 * db image 版本選用原則
   1. 版本選擇皆以當前(文件撰寫日期)最新的長期規劃版本
   2. Linux 系統為 Ubuntu 依當前 LTS 版本採用 ubuntu 24.04.1 (Noble Numbat)
-  3. SQL Server 依當前 MariaDB LTS 版本採用 mariadb 11.4.4
+  3. DB Server 依當前 MariaDB LTS 版本採用 mariadb 11.4.4
   4. 綜上所述，採用 image 為 mariadb:11.4.4-noble
 
 * 參考資料與 image 來源
